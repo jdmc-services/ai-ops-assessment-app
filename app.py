@@ -9,8 +9,8 @@ from reportlab.lib.styles import getSampleStyleSheet
 
 st.set_page_config(page_title="AI Ops Assessment | JDMC Services", layout="wide")
 
-# FIXED: Added the missing trailing slash so "15min" appends correctly
-CALENDLY_URL = "https://calendly.com/jdmcservices/"
+# Base URL for your Calendly
+CALENDLY_URL = "https://calendly.com/jdmcservices"
 
 # -----------------------------
 # PDF Generator
@@ -70,12 +70,12 @@ def generate_executive_pdf(
     
     story.append(Spacer(1, 20))
     story.append(Paragraph("Next Steps", styles["Heading2"]))
-    story.append(Paragraph(f"Schedule your 15-minute Strategy Diagnosis at: {CALENDLY_URL}15min", styles["BodyText"]))
+    # Fixed URL logic for PDF
+    story.append(Paragraph(f"Schedule your 15-minute Strategy Diagnosis at: {CALENDLY_URL.rstrip('/')}/15min", styles["BodyText"]))
 
     doc.build(story)
     buffer.seek(0)
     return buffer
-
 
 # -----------------------------
 # Header
@@ -160,9 +160,17 @@ colCTA1, colCTA2 = st.columns(2)
 
 with colCTA1:
     st.write("### 📅 Book Executive Review")
-    # This now correctly forms https://calendly.com/jdmcservices/15min
-    st.link_button("🚀 Get Your Detailed Implementation Roadmap", f"{CALENDLY_URL}15min", type="primary", use_container_width=True)
-    st.caption("Redirects to JDMC Services Strategy Booking.")
+    
+    # FIXED LOGIC: Ensure exactly one slash between URL and 15min
+    full_calendly_path = f"{CALENDLY_URL.rstrip('/')}/15min"
+    
+    st.link_button(
+        label="🚀 Get Your Detailed Implementation Roadmap", 
+        url=full_calendly_path, 
+        type="primary", 
+        use_container_width=True
+    )
+    st.caption(f"Redirecting to: {full_calendly_path}")
 
 with colCTA2:
     st.write("### 📄 Download PDF Report")
