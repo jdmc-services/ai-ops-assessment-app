@@ -429,4 +429,4 @@ st.info(f"**Coach's Note:** This represents {hours_lost_per_week * employees * 5
 if st.button("Get Your Detailed Implementation Roadmap"):
     st.write("Redirecting to JDMC Services Strategy Booking...")
     # Link this to your Calendly
-    st.markdown(f'<a href="YOUR_CALENDLY_LINK" target="_blank">Click here to book your 15-minute Diagnosis</a>', unsafe_allow_stdio=True)
+    st.markdown(f'<a href="https://calendly.com/jdmcservices/" target="_blank">Click here to book your 15-minute Diagnosis</a>', unsafe_allow_stdio=True)
