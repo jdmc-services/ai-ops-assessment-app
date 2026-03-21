@@ -9,7 +9,8 @@ from reportlab.lib.styles import getSampleStyleSheet
 
 st.set_page_config(page_title="AI Ops Assessment | JDMC Services", layout="wide")
 
-CALENDLY_URL = "https://calendly.com/jdmcservices"
+# FIXED: Added the missing trailing slash so "15min" appends correctly
+CALENDLY_URL = "https://calendly.com/jdmcservices/"
 
 # -----------------------------
 # PDF Generator
@@ -69,7 +70,7 @@ def generate_executive_pdf(
     
     story.append(Spacer(1, 20))
     story.append(Paragraph("Next Steps", styles["Heading2"]))
-    story.append(Paragraph(f"Schedule your 15-minute Strategy Diagnosis at: {CALENDLY_URL}", styles["BodyText"]))
+    story.append(Paragraph(f"Schedule your 15-minute Strategy Diagnosis at: {CALENDLY_URL}15min", styles["BodyText"]))
 
     doc.build(story)
     buffer.seek(0)
@@ -152,13 +153,14 @@ col4.metric("Total Cost Impact", f"${total_cost:,}")
 st.divider()
 
 # -----------------------------
-# Final Call to Action (The Close)
+# Final Call to Action
 # -----------------------------
 st.markdown("## Finalize Your Executive Report")
 colCTA1, colCTA2 = st.columns(2)
 
 with colCTA1:
     st.write("### 📅 Book Executive Review")
+    # This now correctly forms https://calendly.com/jdmcservices/15min
     st.link_button("🚀 Get Your Detailed Implementation Roadmap", f"{CALENDLY_URL}15min", type="primary", use_container_width=True)
     st.caption("Redirects to JDMC Services Strategy Booking.")
 
