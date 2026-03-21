@@ -9,7 +9,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 
 st.set_page_config(page_title="AI Ops Assessment | JDMC Services", layout="wide")
 
-CALENDLY_URL = "https://calendly.com/jdmcservices/"
+CALENDLY_URL = "https://calendly.com/jdmcservices"
 
 # -----------------------------
 # PDF Generator
