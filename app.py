@@ -395,3 +395,38 @@ st.download_button(
 )
 
 st.caption("Book directly with JDMC Services to review findings and discuss next-step optimization strategy.")
+import streamlit as st
+
+st.header("💰 Automation ROI Calculator")
+st.write("Calculate how much manual processes are currently costing your organization.")
+
+# 1. Inputs - Use columns for a clean UI
+col1, col2 = st.columns(2)
+
+with col1:
+    employees = st.number_input("Number of employees affected", min_value=1, value=10)
+    avg_hourly_rate = st.number_input("Average hourly rate ($)", min_value=15, value=45)
+
+with col2:
+    hours_lost_per_week = st.number_input("Hours lost to manual tasks/week (per person)", min_value=1, value=5)
+    automation_potential = st.slider("Target automation percentage (%)", 10, 100, 70)
+
+# 2. Calculation Logic
+weekly_loss = employees * hours_lost_per_week * avg_hourly_rate
+annual_loss = weekly_loss * 52
+potential_savings = annual_loss * (automation_potential / 100)
+
+# 3. The "Executive Hook" Visuals
+st.divider()
+st.subheader("Your Annual Operational Leak")
+st.error(f"### ${annual_loss:,.0f} / year")
+
+st.success(f"### Potential Recoverable Revenue: ${potential_savings:,.0f}")
+
+st.info(f"**Coach's Note:** This represents {hours_lost_per_week * employees * 52:,.0f} hours that could be redirected to high-value revenue growth.")
+
+# 4. The Closing CTA
+if st.button("Get Your Detailed Implementation Roadmap"):
+    st.write("Redirecting to JDMC Services Strategy Booking...")
+    # Link this to your Calendly
+    st.markdown(f'<a href="YOUR_CALENDLY_LINK" target="_blank">Click here to book your 15-minute Diagnosis</a>', unsafe_allow_stdio=True)
