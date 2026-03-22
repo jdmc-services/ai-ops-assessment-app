@@ -2,7 +2,7 @@
 
 **Strategic Governance-First Automation for Enterprise IT & Healthcare**
 
-Built by [JDMC Services](https://jdmc-services.com), this framework helps IT leaders quantify "Manual Leakage" and build defensible automation roadmaps. 
+Built by [JDMC Services](https://jdmcservices.com), this framework helps IT leaders quantify "Manual Leakage" and build defensible automation roadmaps. 
 
 ---
 
