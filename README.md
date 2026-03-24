@@ -1,6 +1,5 @@
-# 🚀 AI Operations & Infrastructure ROI Framework
-
-**Strategic Governance-First Automation for Enterprise IT & Healthcare**
+# 🚀Healthcare Infrastructure & AI-Ops ROI Framework
+"A strategic assessment tool for Healthcare IT leaders to quantify ROI across Infrastructure Modernization, Telecom Orchestration, and AI-driven Operational Efficiency."
 
 Built by [JDMC Services](https://jdmcservices.com), this framework helps IT leaders quantify "Manual Leakage" and build defensible automation roadmaps. 
 
